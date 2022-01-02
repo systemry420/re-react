@@ -1,12 +1,15 @@
-const Header = (props) => {  //({ title })
-    const onClick = () => {
-        alert('hello')
-    }
-
+const Header = (props) => {
     return (
         <div className="header">
             <h1 style={{ color: 'red' }}>{props.title}</h1>
-            {/* <button onClick={onClick} className="btn">Add</button> */}
+            <button 
+                onClick={props.onShowForm} 
+                style={
+                    props.showForm ? {'background': 'red'} : 
+                    {'background': 'green'} }
+                className="btn">
+                    {props.showForm ? 'Close' : 'Open'}
+            </button>
         </div>
     )
 }

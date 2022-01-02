@@ -5,6 +5,7 @@ import Header from './comps/Header'
 import Tasks from './comps/Tasks';
 
 const App = () => {
+  const [showForm, setShowForm] = useState(false)
   const [tasks, setTasks] = useState(
     [
       { id: 1, title: 'abcd' },
@@ -17,10 +18,24 @@ const App = () => {
     setTasks(tasks.filter(t => t.id !== id))
   }
 
+  const addTask = (title) => {
+    const id = Math.floor(Math.random() * 100)
+    const obj = {id, title}
+
+    setTasks([...tasks, obj])
+  }
+
   return (
     <div className="container">
-      <Header title="Task Tracker" />
-      <AddTask />
+      <Header 
+        onShowForm={() => setShowForm(!showForm)} 
+        showForm={showForm} 
+        title="Task Tracker" 
+      />
+
+      {
+        showForm ? <AddTask addTask={addTask} /> : ''
+      }
 
       {
         tasks.length > 0 ? (

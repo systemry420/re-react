@@ -1,11 +1,30 @@
 import React from 'react'
+import { useState } from 'react';
 
-const AddTask = () => {
+const AddTask = ({ addTask }) => {
+
+    const [title, setTitle] = useState('')
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        if (title === '') {
+            alert('please fill title')
+            return
+        }
+        
+        addTask(title)
+        setTitle('')
+    }
+
     return (
-        <form className='add-form'>
+        <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
                 <label>Title</label>
-                <input type='text' placeholder='Add New Task' />
+                <input 
+                    type='text' 
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder='Add New Task' />
             </div>
 
             <div className='form-control'>
