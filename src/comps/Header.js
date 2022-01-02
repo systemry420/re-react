@@ -6,7 +6,7 @@ const Header = (props) => {  //({ title })
     return (
         <div className="header">
             <h1 style={{ color: 'red' }}>{props.title}</h1>
-            <button onClick={onClick} className="btn">Add</button>
+            {/* <button onClick={onClick} className="btn">Add</button> */}
         </div>
     )
 }

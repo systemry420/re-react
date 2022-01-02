@@ -1,17 +1,17 @@
 import Task from "./Task"
 
-const Tasks = ({ tasks }) => {
-    return (
-        <div>
-            {
-                tasks.map(
-                    (task) => (
-                        <Task key={task.id} task={task.title} />
-                    )
-                )
-            }
-        </div>
-    )
+const Tasks = ({ tasks, deleteTask }) => {
+  return (
+    <div>
+      {
+        tasks.map(
+          (task) => (
+            <Task key={task.id} task={task} deleteTask={deleteTask}/>
+          )
+        )
+      }
+    </div>
+  )
 }
 
 export default Tasks
