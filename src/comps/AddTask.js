@@ -23,6 +23,7 @@ const AddTask = ({ addTask }) => {
                 <label>Title</label>
                 <input 
                     type='text' 
+                    value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder='Add New Task' />
             </div>

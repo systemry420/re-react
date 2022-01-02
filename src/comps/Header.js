@@ -5,8 +5,10 @@ const Header = (props) => {
             <button 
                 onClick={props.onShowForm} 
                 style={
-                    props.showForm ? {'background': 'red'} : 
-                    {'background': 'green'} }
+                    props.showForm ? 
+                    {'background': 'red'} : 
+                    {'background': 'green'} 
+                }
                 className="btn">
                     {props.showForm ? 'Close' : 'Open'}
             </button>

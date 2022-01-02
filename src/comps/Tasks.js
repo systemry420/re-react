@@ -5,8 +5,8 @@ const Tasks = ({ tasks, deleteTask }) => {
     <div>
       {
         tasks.map(
-          (task) => (
-            <Task key={task.id} task={task} deleteTask={deleteTask}/>
+          (task, index) => (
+            <Task key={index} task={task} deleteTask={deleteTask}/>
           )
         )
       }
