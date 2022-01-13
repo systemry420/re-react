@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Page1 from './pages/page1';
 import { BrowserRouter } from 'react-router-dom';
 import ThemeContextProvider from './contexts/ThemeContext';
+import AuthContextProvider from './contexts/AuthContext';
 
 const App = () => {
   const [showForm, setShowForm] = useState(false)
@@ -31,26 +32,28 @@ const App = () => {
 
   return (
     <div className="container">
-      <ThemeContextProvider>
-        <Header 
-          onShowForm={() => setShowForm(!showForm)} 
-          showForm={showForm} 
-          title="Task Tracker" 
-        />
+      <AuthContextProvider>
+        <ThemeContextProvider>
+          <Header 
+            onShowForm={() => setShowForm(!showForm)} 
+            showForm={showForm} 
+            title="Task Tracker" 
+          />
 
-        {
-          showForm ? <AddTask addTask={addTask} /> : ''
-        }
+          {
+            showForm ? <AddTask addTask={addTask} /> : ''
+          }
 
-        {
-          tasks.length > 0 ? (
-            <Tasks tasks={tasks} deleteTask={deleteTask}/>
-          ) :
-          (
-            <h1>No tasks for now!!!</h1>
-          )
-        }
-      </ThemeContextProvider>
+          {
+            tasks.length > 0 ? (
+              <Tasks tasks={tasks} deleteTask={deleteTask}/>
+            ) :
+            (
+              <h1>No tasks for now!!!</h1>
+            )
+          }
+        </ThemeContextProvider>
+      </AuthContextProvider>
     </div>
   );
 }
