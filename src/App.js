@@ -3,6 +3,10 @@ import './App.css';
 import AddTask from './comps/AddTask';
 import Header from './comps/Header'
 import Tasks from './comps/Tasks';
+import { Route, Routes } from 'react-router-dom';
+import Page1 from './pages/page1';
+import { BrowserRouter } from 'react-router-dom';
+
 
 const App = () => {
   const [showForm, setShowForm] = useState(false)
