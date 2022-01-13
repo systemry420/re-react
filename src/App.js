@@ -6,7 +6,7 @@ import Tasks from './comps/Tasks';
 import { Route, Routes } from 'react-router-dom';
 import Page1 from './pages/page1';
 import { BrowserRouter } from 'react-router-dom';
-
+import ThemeContextProvider from './contexts/ThemeContext';
 
 const App = () => {
   const [showForm, setShowForm] = useState(false)
@@ -31,24 +31,26 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header 
-        onShowForm={() => setShowForm(!showForm)} 
-        showForm={showForm} 
-        title="Task Tracker" 
-      />
+      <ThemeContextProvider>
+        <Header 
+          onShowForm={() => setShowForm(!showForm)} 
+          showForm={showForm} 
+          title="Task Tracker" 
+        />
 
-      {
-        showForm ? <AddTask addTask={addTask} /> : ''
-      }
+        {
+          showForm ? <AddTask addTask={addTask} /> : ''
+        }
 
-      {
-        tasks.length > 0 ? (
-          <Tasks tasks={tasks} deleteTask={deleteTask}/>
-        ) :
-        (
-          <h1>No tasks for now!!!</h1>
-        )
-      }
+        {
+          tasks.length > 0 ? (
+            <Tasks tasks={tasks} deleteTask={deleteTask}/>
+          ) :
+          (
+            <h1>No tasks for now!!!</h1>
+          )
+        }
+      </ThemeContextProvider>
     </div>
   );
 }

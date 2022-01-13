@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 import App from './App'
 import Page1 from './pages/page1';
 
 const Home = () => {
     return (
-        <Router>
+        <BrowserRouter>
            <Fragment>
                <ul>
                    <li>
@@ -20,7 +20,7 @@ const Home = () => {
                     <Route exact path='/p' element={<Page1 />}/>
                 </Routes>
            </Fragment>
-        </Router>
+        </BrowserRouter>
     )
 }
 
